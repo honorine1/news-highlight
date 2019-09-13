@@ -1,17 +1,60 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset = "utf-8">
-        {% if title %}
-        <title> {{ title }} </title>
-        {% else %}
-        <title> Welcome to the best Updated News Ever</title>
-        {% endif %}
+{% extends 'base.html'%}
 
-    </head>
-    <body>
-        <h1><strong>hello you!</strong></h1>
-    </body>
-</html>
 
+{%block content %}
+        
+        <h1>News Sources</h1>
+        <ul>
+            <h2>General News</h2>
+            {% for sources in general %}
+                <li><h2>Name: {{ sources.name }}</h2></li>
+                <li>ID: {{ sources.id }}</li>
+                <li>Description: {{ sources.description }}</li>
+                <li>Url: <a href='{{ sources.url }}'>News sources</a></li>
+                <li>Category: {{ sources.category }}</li>
+                <li>Language: {{ sources.language }}</li>
+                <li>Country: {{ sources.country }}</li>
+            {% endfor %}
+        </ul>
+{% endblock%}
+
+            <!-- <h2>Entertainment News</h2>
+            {% for sources in entertainment %}
+                <li><h2>Name: {{ sources.name }}</h2></li>
+                <li>ID: {{ sources.id }}</li>
+                <li>Description: {{ sources.description }}</li>
+                <li>Url: <a href='{{ sources.url }}'>News sources</a></li>
+                <li>Category: {{ sources.category }}</li>
+                <li>Language: {{ sources.language }}</li>
+                <li>Country: {{ sources.country }}</li>
+            {% endfor %}
+
+            <h2>Sport News</h2>
+            {% for sources in sport %}
+                <li><h2>Name: {{ sources.name }}</h2></li>
+                <li>ID: {{ sources.id }}</li>
+                <li>Description: {{ sources.description }}</li>
+                <li>Url: <a href='{{ sources.url }}'>News sources</a></li>
+                <li>Category: {{ sources.category }}</li>
+                <li>Language: {{ sources.language }}</li>
+                <li>Country: {{ sources.country }}</li>
+            {% endfor %}
+
+            <h2>Technology News</h2>
+            {% for sources in technology %}
+                <li><h2>Name: {{ sources.name }}</h2></li>
+                <li>ID: {{ sources.id }}</li>
+                <li>Description: {{ sources.description }}</li>
+                <li>Url: <a href='{{ sources.url }}'>News sources</a></li>
+                <li>Category: {{ sources.category }}</li>
+                <li>Language: {{ sources.language }}</li>
+                <li>Country: {{ sources.country }}</li>
+            {% endfor %} -->
    
+
+    
+    <!-- </body>
+</html> -->
+
+   <!-- <h1> Hello World !!!</h1> -->
+
