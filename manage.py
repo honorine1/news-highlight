@@ -1,12 +1,12 @@
-from flask import Flask
+from app import create_app
+from flask_script import Manager,Server
 
-app = Flask(__name__)
-@app.route('/')
-def index():
-    return '<h1><strong> hello worls </strong></h1>'
+# Creating app instance
+app = create_app('development')
 
-from app import app
+manager = Manager(app)
+manager.add_command('server',Server)
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    manager.run()
