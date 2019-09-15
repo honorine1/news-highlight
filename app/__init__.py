@@ -24,7 +24,7 @@ def create_app(config_name):
     from .requests import configure_request
     configure_request(app)
 
-    # #initialize flask extension
+    #initialize flask extension
     # bootstrap = Bootstrap(app)
      # Will add the views and forms
 

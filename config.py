@@ -6,7 +6,7 @@ class Config:
     '''
 
     NEWS_API_BASE_URL = 'https://newsapi.org/v2/sources?/category={}?&apiKey={}'
-    ARTICLES_API_BASE_URL = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey={}'
+    # ARTICLES_API_BASE_URL = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey={}'
     NEWS_API_KEY = '4b93a2c150d84abd9cc068e368fd8d92'
     # NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
     SECRETE_KEY = os.environ.get('SECRETE_KEY')

@@ -1,6 +1,7 @@
 from flask import render_template,request,redirect,url_for
 from . import main
 from ..requests import get_sources,get_article
+
 # from ..requests import get_sources,get_source,search_source
 # from .form import ReviewForm
 # from ..models import Review
@@ -21,4 +22,12 @@ def index():
     title = 'News - welcome to this news platform'
     return render_template('index.html',title = title,  general = general )
 
-@main.route('')
+@main.route('/article/<int:id>')
+def article(id):
+
+    '''
+    view article page function that returns the article details page and its data
+    '''
+
+    article = get_article(id)
+    return render_template('article.html',id =id, article = article)

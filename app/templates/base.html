@@ -1,5 +1,5 @@
-{% extends 'bootstrap/base.html'%}
-
+{% extends 'bootstrap/base.html' %}
+<!-- <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"> -->
 
 <!-- Navbar block  --> 
 {% block navbar %}
@@ -12,9 +12,9 @@
         <meta charset="utf-8">
        
         {% if title %}
-        <title> {{ title }} </title>
+            <title> {{ title }} </title>
         {% else %}
-        <title> Welcome to the best Updated News Ever</title>
+            <title> Welcome to the best Updated News Ever</title>
         {% endif %}
     </head>
     <body>
@@ -25,3 +25,4 @@
         {% endblock%}
     </body>
 </html>
+

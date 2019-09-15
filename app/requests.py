@@ -68,9 +68,37 @@ def get_article(id):
             title = article_details_response.get('title')
             author = article_details_response.get('author')
             url = article_details_response.get('url')
+            content = article_details_response.get('content')
             publishedAt = article_details_response.get('publishedAt')
         
-            article_object = article(id,title,author,url,publishedAt)
+            article_object = article(id,title,author,url,urlToImage,description,publishedAt)
+
+
+def process_article(article_list):
+    '''
+    function that processes the article result and transform them to a list of objects
+    args:
+        article_list: A list of dictionaries that contain articlee details
+    returns:
+        article_resultss: a list of article objects
+    '''
+
+    article_results =[]
+    for article_item in article_list:
+        id = article_item.get('id')
+        title = article_item.get('title')
+        description = article_item.get('description')
+        author = article_item.get('author')
+        url = article_item.get('url')
+        urlToImage =  article_item('article.urlToImage')
+        publishedAt = source_item.get('publishedAt')
+      
+        if id:
+
+            article_object=Article(id,title,description,url,author,publishedAt,country)
+            article_results.append(article_object)
+    return article_results
+
 
 
 

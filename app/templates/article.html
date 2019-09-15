@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+<!-- Content block -->
+{% block content %}
+<div class="container">
+
+   
+    <div class="row">
+        <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{article.urlToImage}}) no-repeat center center">
+        </div> -->
+        {% for articl in article%}
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 article-details">
+            <img src="{{article.urlToImage}}"  class="img-responsive"style="height:150px" >
+            <h3>{{ article.title }}</h3>
+            <p class="ratings"> <b> {{ article.author }}</b></p>
+            <p > {{ article.content }}</p>
+           
+            <a href="{{ article.url}}" target="_blank"><button>read more</button></a>          
+            <p > publishet At: {{ article.publishedAt}}</p>
+        {% endfor%} 
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+
+
+				              
+            
