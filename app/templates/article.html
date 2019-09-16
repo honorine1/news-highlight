@@ -4,22 +4,35 @@
 <div class="container">
 
    
-    <div class="row">
+    
       
         {% for article in articles %}
+        <div class="row">
+            <h3 style="text-align: center;padding:5px"><strong>{{ article.title }}</strong></h3>
+            <div class="col-md-2"></div>
+            <div class='col-md-8' >
 
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 article-details">
-            <img src="{{article.urlToImage}}"  class="img-responsive"style="height:150px" >
-            <h3>{{ article.title }}</h3>
-            <p class="ratings"> <b> {{ article.author }}</b></p>
-            <p > {{ article.description }}</p>
-           
-           
-            <p > publishet At: {{ article.publishedAt}}</p>
-        {% endfor%} 
-
+                <img src="{{article.urlToImage}}"  class="img-responsive"style="height:250px;width:300px;" >
+            
+            </div>
+            <div class="col-md-2">
+                
+            </div>
         </div>
-    </div>
+        <div class="row" style="text-align: center;padding-top: 10px;font-size:10px">
+            <div class='col-md-3'></div>
+            <div class="col-md-6">
+
+                <p > {{ article.description }}</p>
+        
+                <p > <b> {{ article.author }}</b></p>
+                <p > publishet At: {{ article.publishedAt}}</p>
+        </div>
+        <div class='col-md-3'></div>
+        </div>
+        
+        {% endfor%} 
+   
 
 </div>
 {% endblock %}

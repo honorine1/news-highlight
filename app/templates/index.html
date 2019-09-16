@@ -15,18 +15,18 @@
 
         
         <ul>
-            <h2 style="background-color: black; text-align:center; color:white; margin-right:15px; border-radius:12px;padding:10px"><strong>General News</strong></h2>
+            <h2 style="background-color: black; text-align:center; color:white;  border-radius:12px;padding:10px"><strong>General News</strong></h2>
             
-            <div class='container'style='background-color:grey;border-radius:12px; font-family:Teko;font-size:20px;padding-top:10px'>
+            <div class='container'style='background-color:grey;border-radius:12px; text-align: center;font-family:Teko;font-size:20px;padding-top:20px'>
                 <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
                             {% for sources in general %}
                                 <ul style='text-decoration:none;list-style-type: none'>
-                                    <li><h2 style="text-align: center;border-bottom: 1px"> {{ sources.name }}</h2></li>
+                                    <li><h2 style="border-bottom: 1px"> {{ sources.name }}</h2></li>
                                     <li>ID: {{ sources.id }}</li>
                                     <li>Description: {{ sources.description }}</li>
-                                    <li>Do you want to read more? <a href='{{ sources.url }}' style='color:white'><strong> our site</strong></a></li>
+                                    <li>Do you want to read more? <a href='{{ sources.url }}' style='color:white'><strong> Visit our site</strong></a></li>
                                     <li>Category: {{ sources.category }}</li>
                                     <li>Language: {{ sources.language }}</li>
                                     <li>Country: {{ sources.country }}</li>
@@ -37,7 +37,7 @@
                                     
 
                     </div>
-                    <div class="col-md-2"></div>
+                    <div class="col-md-3"></div>
                 </div>
             
     </div>
