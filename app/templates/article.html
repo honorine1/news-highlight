@@ -7,19 +7,20 @@
     
       
         {% for article in articles %}
+        <div class="content" style='background-color:black;color:white;border-radius:20px;margin:1px;'>
         <div class="row">
             <h3 style="text-align: center;padding:5px"><strong>{{ article.title }}</strong></h3>
             <div class="col-md-2"></div>
             <div class='col-md-8' >
 
-                <img src="{{article.urlToImage}}"  class="img-responsive"style="height:250px;width:300px;" >
+                <img src="{{article.urlToImage}}"  class="img-responsive"style="height:250px;padding-left:150px" >
             
             </div>
             <div class="col-md-2">
                 
             </div>
         </div>
-        <div class="row" style="text-align: center;padding-top: 10px;font-size:10px">
+        <div class="row" style="text-align: center;padding-top: 10px;font-size:15px">
             <div class='col-md-3'></div>
             <div class="col-md-6">
 
@@ -30,6 +31,8 @@
         </div>
         <div class='col-md-3'></div>
         </div>
+        </div>
+        
         
         {% endfor%} 
    
