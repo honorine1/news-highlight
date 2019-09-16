@@ -3,30 +3,45 @@
 
 
 <!-- Styles block -->
-
+<!-- 
 {% block styles%}
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
-{% endblock %}
+{% endblock %} -->
 
 
 {%block content %}
 
 
-        <h1>News Sources</h1>
+        
         <ul>
-            <h2>General News</h2>
-            {% for sources in general %}
-                <li><h2>Name: {{ sources.name }}</h2></li>
-                <li>ID: {{ sources.id }}</li>
-                <li>Description: {{ sources.description }}</li>
-                <li>Url: <a href='{{ sources.url }}'>News sources</a></li>
-                <li>Category: {{ sources.category }}</li>
-                <li>Language: {{ sources.language }}</li>
-                <li>Country: {{ sources.country }}</li>
-            {% endfor %}
-        </ul>
-{% endblock%}
+            <h2 style="background-color: black; text-align:center; color:white; margin-right:15px; border-radius:12px;padding:10px"><strong>General News</strong></h2>
+            
+            <div class='container'style='background-color:grey;border-radius:12px; font-family:Teko;font-size:20px;padding-top:10px'>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                            {% for sources in general %}
+                                <ul style='text-decoration:none;list-style-type: none'>
+                                    <li><h2 style="text-align: center;border-bottom: 1px"> {{ sources.name }}</h2></li>
+                                    <li>ID: {{ sources.id }}</li>
+                                    <li>Description: {{ sources.description }}</li>
+                                    <li>Do you want to read more? <a href='{{ sources.url }}' style='color:white'><strong> our site</strong></a></li>
+                                    <li>Category: {{ sources.category }}</li>
+                                    <li>Language: {{ sources.language }}</li>
+                                    <li>Country: {{ sources.country }}</li>
+                                   
+                                    <li>Interresting!  <a href="/article/{{sources.id}}"style='color:white'><strong>Read more articles</strong></a></li>
+                                </ul>
+                                    {% endfor %}
+                                    
+
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            
+    </div>
+
 
 <body>
 <!-- general news-->
@@ -36,5 +51,5 @@
 </ul>
 
 </body>
-
+{% endblock%}
 

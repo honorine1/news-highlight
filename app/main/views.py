@@ -22,12 +22,14 @@ def index():
     title = 'News - welcome to this news platform'
     return render_template('index.html',title = title,  general = general )
 
-@main.route('/article/<int:id>')
+@main.route('/article/<id>')
 def article(id):
 
     '''
     view article page function that returns the article details page and its data
     '''
 
-    article = get_article(id)
-    return render_template('article.html',id =id, article = article)
+    articles = get_article(id)
+    print('hellll')
+    print(articles)
+    return render_template('article.html',articles = articles)

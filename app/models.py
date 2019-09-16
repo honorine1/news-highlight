@@ -16,7 +16,7 @@ class Article:
     arcticle class to define article object
     '''
 
-    def __init__(self, author, title, description, url, urlToImage, publishedAt):
+    def __init__(self,author, title, description, url, urlToImage, publishedAt):
         self.author = author
         self.title = title
         self.description = description

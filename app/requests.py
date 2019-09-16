@@ -1,16 +1,19 @@
 # from app import app
 import urllib.request,json # module that will help us create a connection to our API URL and send a request
-from .models import Source
+from .models import Source,Article
 
 # Getting api key
 api_key = None
 # Getting the source base url
 base_url = None
+article_url = None
+
 
 def configure_request(app):
-    global api_key,base_url
+    global api_key,base_url,article_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_API_BASE_URL']
+    article_url = app.config['ARTICLES_API_BASE_URL']
 
 def get_sources(category):
     '''
@@ -56,24 +59,20 @@ def process_sources(source_list):
 
 
 def get_article(id):
-    get_article_details_url = base_url.format(id,api_key)
+    get_article_details_url = article_url.format(id,api_key)
+    print(get_article_details_url)
 
     with urllib.request.urlopen(get_article_details_url) as url:
         get_article_details_data = url.read()
-        get_article_details_response = json.loads(article_details_data)
+        get_article_details_response = json.loads(get_article_details_data)
 
         article_object = None
-        if get_article_details_response:
-            id = article_details_response.get('id')
-            title = article_details_response.get('title')
-            author = article_details_response.get('author')
-            url = article_details_response.get('url')
-            content = article_details_response.get('content')
-            publishedAt = article_details_response.get('publishedAt')
-        
-            article_object = article(id,title,author,url,urlToImage,description,publishedAt)
+        if get_article_details_response['articles']:
+            article_articles_list= get_article_details_response['articles']
+            article_articles = process_article(article_articles_list)
 
-
+    return  article_articles
+    
 def process_article(article_list):
     '''
     function that processes the article result and transform them to a list of objects
@@ -83,42 +82,19 @@ def process_article(article_list):
         article_resultss: a list of article objects
     '''
 
-    article_results =[]
+    article_articles =[]
     for article_item in article_list:
-        id = article_item.get('id')
         title = article_item.get('title')
         description = article_item.get('description')
         author = article_item.get('author')
         url = article_item.get('url')
-        urlToImage =  article_item('article.urlToImage')
-        publishedAt = source_item.get('publishedAt')
+        urlToImage =  article_item.get('urlToImage')
+        publishedAt = article_item.get('publishedAt')
       
-        if id:
+        if urlToImage:
+            article_object=Article(author, title, description, url, urlToImage, publishedAt)
+            article_articles.append(article_object)
 
-            article_object=Article(id,title,description,url,author,publishedAt,country)
-            article_results.append(article_object)
-    return article_results
-
-
+    return article_articles
 
 
-# def get_source(id):
-#     get_source_details_url = base_url.format(id,api_key)
-
-#     with urllib.request.urlopen(get_source_details_url) as url:
-#         source_details_data = url.read()
-#         source_details_response = json.loads(source_details_data)
-
-#         source_object = None
-#         if movie_details_response:
-#             id = source_details_response.get('id')
-#             name = source_details_response.get('original_name')
-#             description = movie_details_response.get('description')
-#             url = movie_details_response.get('url')
-#             category = movie_details_response.get('category')
-#             country = movie_details_response.get('country')
-
-#             source_object = Source(id,name,description,url,category,country)
-
-# return source_object            
-         
